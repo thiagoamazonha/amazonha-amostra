@@ -6,7 +6,7 @@ function dec(b){var s=atob(b),a=new Uint8Array(s.length);for(var i=0;i<s.length;
 var f=document.getElementById('f');
 function go(k){f.srcdoc=dec(P[k])}
 f.addEventListener('load',function(){try{var d=f.contentDocument;
- d.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;
+ d.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.hot'))return;var a=e.target.closest&&e.target.closest('a');if(!a)return;
   var h=(a.getAttribute('href')||'').split('#')[0];h=h.split('/').pop();
   if(N[h]){e.preventDefault();go(N[h]);}},true);}catch(x){}});
 go('vitrine');
